@@ -6,5 +6,7 @@ export default function ConversionResult({
   amountFrom,
   amountTo,
 }) {
-  return <p>{amountFrom} {currencyFrom} = {amountTo} {currencyTo}</p>;
+  return <p data-testid={'conversionResult'}>
+    {amountFrom} {currencyFrom} = {amountTo} {currencyTo}
+  </p>;
 }
