@@ -1,12 +1,13 @@
-export default async function convertCurrencies(
+export async function convertCurrencies(
     currencyFrom,
     currencyTo,
     amount,
-    callback
+    callback,
 ) {
   const requestURL = 'https://api.exchangerate.host/convert?from=' +
       currencyFrom + '&to=' + currencyTo + '&amount=' + amount;
-  const response = fetch(requestURL)
+
+  fetch(requestURL)
       .then(response => response.json())
       .then(data => callback(data.result));
 }
