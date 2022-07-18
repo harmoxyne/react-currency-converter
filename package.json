@@ -1,6 +1,6 @@
 {
   "name": "currency-converter",
-  "homepage": "https://harmoxyne.github.io/currency-converter",
+  "homepage": "https://harmoxyne.github.io/react-currency-converter/",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
