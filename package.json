@@ -2,7 +2,7 @@
   "name": "currency-converter",
   "homepage": "https://harmoxyne.github.io/currency-converter",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "currency-data": "^1.0.0",
     "gh-pages": "^4.0.0",
