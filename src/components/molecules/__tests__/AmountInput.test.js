@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import AmountInput from '../AmountInput';
 
 describe('<AmountInput />', () => {
@@ -9,21 +9,6 @@ describe('<AmountInput />', () => {
         defaultValue={expectedValue}
     />);
 
-    expect(screen.getByRole('textbox').value).toEqual(expectedValue);
-  });
-
-  it('should call onChange callback when value changes', () => {
-    const onChangeMock = jest.fn();
-    const expectedValue = '123';
-
-    render(<AmountInput
-        onChange={onChangeMock}
-    />);
-
-    fireEvent.change(screen.getByRole('textbox'), {
-      target: {value: expectedValue},
-    });
-
-    expect(onChangeMock).toBeCalledWith(expectedValue);
+    expect(screen.getByRole('spinbutton').value).toEqual(expectedValue);
   });
 });

@@ -19,7 +19,7 @@ describe('<CurrencyConversionForm />', () => {
     const currencyFromSelector = screen.getByTestId('currencyFrom');
     await userEvent.selectOptions(currencyFromSelector, 'UAH');
 
-    const expectedConversionResult = '10 UAH = 15 USD';
+    const expectedConversionResult = '10 UAH =15 USD';
     expect(screen.getByTestId('conversionResult'))
         .toHaveTextContent(expectedConversionResult);
   });
@@ -36,7 +36,7 @@ describe('<CurrencyConversionForm />', () => {
     const currencyToSelector = screen.getByTestId('currencyTo');
     await userEvent.selectOptions(currencyToSelector, 'UAH');
 
-    const expectedConversionResult = '10 EUR = 15 UAH';
+    const expectedConversionResult = '10 EUR =15 UAH';
     expect(screen.getByTestId('conversionResult'))
         .toHaveTextContent(expectedConversionResult);
   });
@@ -50,10 +50,27 @@ describe('<CurrencyConversionForm />', () => {
         defaultAmountFrom={10}
     />);
 
-    const amountInput = screen.getByRole('textbox');
+    const amountInput = screen.getByRole('spinbutton');
     await userEvent.type(amountInput, '25');
 
-    const expectedConversionResult = '25 EUR = 15 USD';
+    const expectedConversionResult = '25 EUR =15 USD';
+    expect(screen.getByTestId('conversionResult'))
+        .toHaveTextContent(expectedConversionResult);
+  });
+
+  it('should swap currencies when button clicked', async () => {
+    fetch.mockResponse(JSON.stringify({result: 15}));
+
+    render(<CurrencyConversionForm
+        defaultCurrencyFrom={'EUR'}
+        defaultCurrencyTo={'USD'}
+        defaultAmountFrom={10}
+    />);
+
+    const swapButton = screen.getByRole('button');
+
+    await userEvent.click(swapButton);
+    const expectedConversionResult = '10 USD =15 EUR';
     expect(screen.getByTestId('conversionResult'))
         .toHaveTextContent(expectedConversionResult);
   });
