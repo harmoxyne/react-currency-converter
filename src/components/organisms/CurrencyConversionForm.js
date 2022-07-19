@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ConversionResult from '../molecules/ConversionResult';
 import CurrencySelector from '../molecules/CurrencySelector';
-import {getData} from 'currency-data';
+import {getAll} from 'currency-library';
 import AmountInput from '../molecules/AmountInput';
 import {convertCurrencies} from '../../services/convertCurrencies';
 import {
@@ -39,7 +39,7 @@ export default function CurrencyConversionForm({
     setCurrencyTo(temp);
   };
 
-  const currencies = getData();
+  const currencies = getAll();
   return <Stack
       backgroundColor={colorMode === 'dark' ? 'gray.800' : 'white'}
       borderRadius={10}

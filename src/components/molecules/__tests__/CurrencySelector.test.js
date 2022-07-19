@@ -4,11 +4,9 @@ import CurrencySelector from '../CurrencySelector';
 describe('<CurrencySelector />', () => {
   const currencies = [
     {
-      currency: {
-        isoCode: 'TEST',
-        name: 'TEST',
-        symbol: 'T',
-      },
+      isoCode: 'TEST',
+      name: 'TEST',
+      symbol: 'T',
     },
   ];
 
@@ -38,9 +36,9 @@ describe('<CurrencySelector />', () => {
     />);
 
     fireEvent.change(screen.getByRole('combobox'), {
-      target: {value: currencies[0].currency.isoCode},
+      target: {value: currencies[0].isoCode},
     });
 
-    expect(onChangeMock).toBeCalledWith(currencies[0].currency.isoCode);
+    expect(onChangeMock).toBeCalledWith(currencies[0].isoCode);
   });
 });
