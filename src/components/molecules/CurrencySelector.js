@@ -6,7 +6,8 @@ export default function CurrencySelector({onChange, currencies, name}) {
       onChange={onChange}
       options={currencies}
       getValueCallback={(entry) => entry.currency.isoCode}
-      getDescriptionCallback={(entry) => `${entry.currency.name}(${entry.currency.symbol})`}
+      getDescriptionCallback={(entry) => `${entry.currency.isoCode}(${entry.currency.symbol})`}
       name={name}
+      defaultValue={'Choose currency'}
   />;
 }

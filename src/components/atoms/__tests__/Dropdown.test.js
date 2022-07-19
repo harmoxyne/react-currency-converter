@@ -1,6 +1,5 @@
 import {fireEvent, render, screen} from '@testing-library/react';
 import Dropdown from '../Dropdown';
-import CurrencySelector from '../../molecules/CurrencySelector';
 
 describe('<Dropdown />', () => {
   it('should call getValueCallback if options provided', () => {

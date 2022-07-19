@@ -14,8 +14,8 @@ describe('<ConversionResult />', () => {
         amountTo={amountTo}
     />);
 
-    const expectedResult = `${amountFrom} ${currencyFrom} = ${amountTo} ${currencyTo}`;
+    const expectedResult = `${amountFrom} ${currencyFrom} =${amountTo} ${currencyTo}`;
 
-    expect(screen.getByText(expectedResult)).toBeTruthy();
+    expect(screen.getByTestId('conversionResult')).toHaveTextContent(expectedResult);
   });
 });
